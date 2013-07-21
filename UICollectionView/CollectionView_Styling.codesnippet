@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>static NSString *const &lt;#IDENTIFIER#&gt;_CELL_IDENTIFIER = &lt;#IDENTIFIER#&gt;;
+
+- (void)setupStyle{
+    [self.collectionView registerNib:[UINib nibWithNibName:&lt;#CELL_NIB#&gt; bundle:nil] forCellWithReuseIdentifier:&lt;#IDENTIFIER#&gt;];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>CCFD654C-B1DC-4A3C-B2C6-9612E25585E9</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Register Nibs for collection views</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>CollectionView Styling</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
