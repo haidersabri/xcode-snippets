@@ -7,4 +7,4 @@ mkdir ~/Library/Developer/Xcode/UserData/CodeSnippets
 
 then copy snippets over:
 
-cp UICollectionView ~/Library/Developer/Xcode/UserData/CodeSnippets
+cp -r UICollectionView/* ~/Library/Developer/Xcode/UserData/CodeSnippets
