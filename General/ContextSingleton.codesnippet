@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassInterfaceMethods</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>@property(nonatomic, strong) NSUserDefaults *defaults;
+
++(instancetype)instance;
+
+- (void)setupCoreData;
+- (void)persistData;
+- (void)purgeData;
+
+
+
+#Implementation
+
+static NSString *const CORE_DATA_FILE_NAME = &lt;#SQLITE_DB#&gt;;
+
++(instancetype)instance {
+    static &lt;#Context#&gt; *_instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&amp;onceToken, ^{
+        _instance = [[MTContext alloc] init];
+        _instance.defaults = [NSUserDefaults standardUserDefaults];
+    });
+    return _instance;
+}
+
+- (void)setupCoreData{
+    [MagicalRecord setupCoreDataStackWithStoreNamed:CORE_DATA_FILE_NAME];
+}
+
+- (void)persistData{
+    [[NSManagedObjectContext defaultContext] saveToPersistentStoreWithCompletion:nil];
+}
+
+- (void)purgeData{
+    NSURL *dbUrl = [NSPersistentStore urlForStoreName:CORE_DATA_FILE_NAME];
+    if (dbUrl) {
+        NSError *error;
+        [MagicalRecord cleanUp];
+        BOOL success = [[NSFileManager defaultManager] removeItemAtURL:dbUrl error:&amp;error];
+        if (success &amp;&amp; !error) {
+            [self setupCoreData];
+        }
+    }
+}
+
+
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>75297BF3-1919-4915-8B32-DA9027BA8FE3</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C-Plus-Plus</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Context Singleton</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Generic Context</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
